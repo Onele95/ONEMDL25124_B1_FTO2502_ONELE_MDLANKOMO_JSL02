@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban Board</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link
+      href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <input type="checkbox" id="sidebar-toggle" aria-hidden="true" />
+    <nav class="sidebar">
+      <div class="sidebar-content">
+        <div class="logo-container">
+          <img class="logo" src="assets/logo-light.svg" alt="Kanban logo" />
+        </div>
+        <h4 class="sidebar-title">ALL BOARDS (1)</h4>
+        <button class="board-btn active">Launch Career</button>
+      </div>
+    </nav>
+    <div class="main-container">
+      <header class="board-header">
+        <label for="sidebar-toggle" class="menu-toggle-label">
+          <img src="assets/favicon.svg" alt="Menu" class="mobile-favicon" />
+        </label>
+        <h2 class="board-title">Launch Career</h2>
+      </header>
+      <div class="board-content">
+        <main class="kanban-board">
+          <div class="kanban-column todo-column">
+            <div class="column-header">
+              <span class="column-indicator"></span>
+              <h4>TODO (4)</h4>
+            </div>
+            <div class="tasks-container">
+              <div class="task-card">Launch Epic Career 🚀</div>
+              <div class="task-card">Conquer React ⚛️</div>
+              <div class="task-card">Understand Databases ⚙️</div>
+              <div class="task-card">Crush Framework 🖼️</div>
+            </div>
+          </div>
+
+          <div class="kanban-column doing-column">
+            <div class="column-header">
+              <span class="column-indicator"></span>
+              <h4>DOING (2)</h4>
+            </div>
+            <div class="tasks-container">
+              <div class="task-card">Master JavaScript 💛</div>
+              <div class="task-card">Keep on Going 🏆</div>
+            </div>
+          </div>
+
+          <div class="kanban-column done-column">
+            <div class="column-header">
+              <span class="column-indicator"></span>
+              <h4>DONE (2)</h4>
+            </div>
+            <div class="tasks-container">
+              <div class="task-card">Explore ES6 Features 🚀</div>
+              <div class="task-card">Have Fun 🥳</div>
+            </div>
+          </div>
+        </main>
+      </div>
+    </div>
+  </body>
+  <script src="script.js"></script>
+</html>
