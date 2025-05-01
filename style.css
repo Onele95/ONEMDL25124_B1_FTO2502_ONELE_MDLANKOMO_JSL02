@@ -1,0 +1,290 @@
+:root {
+  --primary-color: #635fc7;
+  --primary-light: #a8a4ff;
+  --background-white: #ffffff;
+  --background-light: #f4f7fd;
+  --text-light: #ffffff;
+  --text-dark: #000112;
+  --gray-light: #e4ebfa;
+  --gray-medium: #828fa3;
+  --red: #ea5555;
+  --red-light: #ff9898;
+  --focus-ring: 0 0 0 2px var(--primary-light);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Plus Jakarta Sans", sans-serif;
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  background-color: var(--background-light);
+  color: var(--text-dark);
+}
+
+#sidebar-toggle {
+  display: none;
+}
+
+.sidebar {
+  width: 260px;
+  background-color: var(--background-white);
+  color: var(--text-light);
+  padding: 20px 0;
+  border-right: 1px solid var(--gray-light);
+  transition: transform 0.3s ease;
+  z-index: 100;
+}
+
+.sidebar-content {
+  padding: 0 20px;
+}
+
+.sidebar-title {
+  font-size: 12px;
+  letter-spacing: 2px;
+  margin: 16px 0 20px 0;
+  color: var(--gray-light);
+}
+
+.board-btn {
+  width: 100%;
+  background: none;
+  color: var(--primary-color);
+  border: none;
+  padding: 12px 0 12px 16px;
+  border-radius: 0 24px 24px 0;
+  font-weight: 700;
+  cursor: pointer;
+  text-align: left;
+  transition: all 0.2s;
+  margin-bottom: 4px;
+}
+
+.board-btn:hover {
+  background-color: var(--primary-light);
+  color: var(--primary-color);
+}
+
+.board-btn.active {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.board-btn:focus {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.logo-container {
+  padding: 0 20px 24px 20px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+  width: 152.53px;
+  height: 25.22px;
+}
+
+.main-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.board-header {
+  padding: 20px;
+  border-bottom: 1px solid var(--gray-light);
+  background-color: var(--background-white);
+  display: flex;
+  align-items: center;
+}
+
+.board-title {
+  font-size: 24px;
+  margin-left: 10px;
+}
+
+.board-content {
+  flex: 1;
+  overflow: hidden;
+}
+
+.kanban-board {
+  display: flex;
+  gap: 24px;
+  padding: 24px;
+  overflow-x: auto;
+  height: 100%;
+}
+
+.kanban-column {
+  min-width: 280px;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.column-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--gray-medium);
+  font-size: 12px;
+  letter-spacing: 2px;
+}
+
+.column-indicator {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+}
+
+.tasks-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  flex: 1;
+}
+
+.task-card {
+  background-color: white;
+  font-weight: 700;
+  font-size: 15px;
+  padding: 16px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+  line-height: 100%;
+  word-break: break-word;
+  will-change: transform, box-shadow;
+}
+
+.task-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.task-card:focus {
+  outline: none;
+  box-shadow: var(--focus-ring);
+}
+
+.todo-column .column-indicator {
+  background-color: #49c4e5;
+}
+
+.doing-column .column-indicator {
+  background-color: #8471f2;
+}
+
+.done-column .column-indicator {
+  background-color: #67e2ae;
+}
+
+.mobile-favicon {
+  width: 24px;
+  height: 24px;
+  display: none;
+}
+
+.menu-toggle-label {
+  display: none;
+  cursor: pointer;
+}
+
+.tasks-container:empty::after {
+  content: "No tasks here yet";
+  color: var(--gray-medium);
+  text-align: center;
+  padding: 16px;
+}
+
+.kanban-board::-webkit-scrollbar {
+  height: 8px;
+}
+
+.kanban-board::-webkit-scrollbar-thumb {
+  background-color: var(--gray-medium);
+  border-radius: 4px;
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    position: fixed;
+    height: 100vh;
+    transform: translateX(-100%);
+  }
+
+  #sidebar-toggle:checked ~ .sidebar {
+    transform: translateX(0);
+  }
+
+  .menu-toggle-label {
+    display: flex;
+    align-items: center;
+    margin-right: 10px;
+  }
+
+  .mobile-favicon {
+    display: block;
+  }
+
+  .main-container {
+    margin-left: 0;
+    padding-top: 20px;
+  }
+
+  .board-header {
+    padding: 15px;
+    display: flex;
+    align-items: center;
+  }
+
+  .kanban-board {
+    flex-direction: column;
+    padding: 1rem;
+    gap: 1rem;
+    min-height: calc(100vh - 80px);
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+
+  .kanban-column {
+    min-width: 100%;
+  }
+
+  .board-title {
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    margin-left: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .kanban-board {
+    min-width: 220px;
+  }
+
+  .task-card {
+    padding: 0.75rem;
+    font-size: 0.9rem;
+  }
+
+  .mobile-favicon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .board-header {
+    padding: 10px 15px;
+  }
+}
