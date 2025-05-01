@@ -35,11 +35,11 @@ A responsive Kanban board application built with **pure HTML and CSS** that help
 - **Column Navigation**  
   ↕️ Scroll vertically through stacked task columns
 
-# Task Manager Loop
+# 🔁 Task Manager Loop
 
 This JavaScript code snippet demonstrates a simple task management system using loops and user input.
 
-## Features
+## ✨ Features
 
 - Collects task details from the user via prompts
 - Validates task status input
